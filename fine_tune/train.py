@@ -1,5 +1,6 @@
 import os
 import numpy as np
+import random
 from torchvision import datasets, models, transforms
 from torch.utils import data
 import pandas as pd
@@ -22,6 +23,12 @@ import seaborn as sns
 from tqdm import trange
 
 sns.set_theme()
+
+# reproducibility
+random.seed(42)
+np.random.seed(42) 
+torch.manual_seed(42)
+torch.cuda.manual_seed(42)
 
 TRAIN_PATH = f"/net/freenas/QNAS/MOVED/SHELFMATCH/R&D/Emelyanov_Dmitry/diplom/rp2k_dataset_my_k_3/train"
 TEST_PATH = f"/net/freenas/QNAS/MOVED/SHELFMATCH/R&D/Emelyanov_Dmitry/diplom/rp2k_dataset_my_k_10/test"

@@ -16,6 +16,12 @@ from PIL import Image
 # os.environ['TERM'] = 'linux'
 # os.environ['TERMINFO'] = '/etc/terminfo'
 
+# reproducibility
+random.seed(42)
+np.random.seed(42) 
+torch.manual_seed(42)
+torch.cuda.manual_seed(42)
+
 # args
 args = DotMap()
 args.deploy = 'finetune'

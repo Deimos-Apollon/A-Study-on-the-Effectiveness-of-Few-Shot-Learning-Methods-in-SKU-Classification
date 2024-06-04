@@ -1,5 +1,6 @@
 import os
 import numpy as np
+import random
 from torchvision import datasets, models, transforms
 from torch.utils import data
 import pandas as pd
@@ -59,6 +60,12 @@ class MetricLearningClsModel(nn.Module):
             y_logits = self.forward(X)
             y_pred = torch.argmax(y_logits, dim=1)
             return y_pred
+
+# reproducibility
+random.seed(42)
+np.random.seed(42) 
+torch.manual_seed(42)
+torch.cuda.manual_seed(42)
 
 device = torch.device('cuda:0')
 

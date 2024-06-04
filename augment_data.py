@@ -18,6 +18,11 @@ dst_dir = None # директория для выходных данных, за
 
 IMG_RESIZE_SIZE = (112, 112)
 
+# reproducibility
+random.seed(42)
+np.random.seed(42) 
+torch.manual_seed(42)
+torch.cuda.manual_seed(42)
 
 class AugmentationManager:
   def __init__(self, params={"input_size": (360, 120),

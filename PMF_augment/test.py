@@ -22,7 +22,11 @@ from tqdm import trange
 from time import time_ns
 sns.set_theme()
 
-
+# reproducibility
+random.seed(42)
+np.random.seed(42) 
+torch.manual_seed(42)
+torch.cuda.manual_seed(42)
 
 def inference(query, supp_x, labels, supp_y):
     '''

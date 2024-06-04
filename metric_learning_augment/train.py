@@ -1,5 +1,6 @@
 import logging
 import mlflow
+import random
 
 import matplotlib.pyplot as plt
 import numpy as np
@@ -80,6 +81,11 @@ train_transforms = transforms.Compose([
     test_transforms
 ])
 
+# reproducibility
+random.seed(42)
+np.random.seed(42) 
+torch.manual_seed(42)
+torch.cuda.manual_seed(42)
 
 train_dir = None # путь к тренировочным данным, заполнить значением
 test_dir = None # путь к тестовым данным, заполнить значением

@@ -1,5 +1,6 @@
 import logging
 import mlflow
+import random
 
 import matplotlib.pyplot as plt
 import numpy as np
@@ -27,6 +28,12 @@ logging.info("VERSION %s" % pytorch_metric_learning.__version__)
 IMG_RESIZE_SIZE = (112, 112)
 
 from torchvision.models import efficientnet_v2_s, EfficientNet_V2_S_Weights
+
+# reproducibility
+random.seed(42)
+np.random.seed(42) 
+torch.manual_seed(42)
+torch.cuda.manual_seed(42)
 
 class MetricLearningClsModel(nn.Module):
     def __init__(self, num_classes, trunk=None, embedder=None, classifier=None, EMBEDDING_SIZE=128):

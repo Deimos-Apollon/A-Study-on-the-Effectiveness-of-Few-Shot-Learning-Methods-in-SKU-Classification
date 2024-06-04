@@ -27,6 +27,12 @@ TEST_PATH = None # путь к тренировочным данным, запо
 
 IMG_RESIZE_SIZE = (112, 112)
 
+# reproducibility
+random.seed(42)
+np.random.seed(42) 
+torch.manual_seed(42)
+torch.cuda.manual_seed(42)
+
 class MetricLearningClsModel(nn.Module):
     def __init__(self, num_classes, trunk=None, embedder=None, classifier=None, EMBEDDING_SIZE=128):
         super().__init__()
